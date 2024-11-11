@@ -45,6 +45,37 @@ But when combined with the `--staged` flag, the command both unstages and undo c
 ```
 This commad will make the full work directory similar to the last commit.
 
+## Git Clean
+`git clean` cleans working directory by removing untracked files. These untracked files can include files that are not part of the version control (i.e., files not staged or committed) and ignored files .
+
+#### **`-f`  flag** :
+This is required for actually removing all untracked files. Git will not delete anything unless the `-f` flag is used.
+
+ ```bash
+  git clean -f 
+ ```   
+### **`-d`** flag:
+
+This option removes untracked directories in addition to untracked files.
+
+   ```bash
+    git clean -fd
+   ```
+   >note : **-f** is mandatory for removing anything. 
+   >
+ ### **`-x`** flag:
+Normally, `git clean` will not remove ignored files (files listed in `.gitignore`). The `-x` option forces Git to also remove those ignored files.
+    
+  ```bash
+ git clean -f -x
+ ```       
+ ###  **`-X`** flag:
+    
+Similar to [`-x`](#-x-flag),  but only removes ignored files, not untracked files. 
+```bash
+git clean -f -X
+```
+  
 ## Git Revert
 Creates a new commit that undoes the changes of a specific commit. So, reverting last commit, we can undo changes in the already committed files. It also deletes newly created files.
 ```bash
